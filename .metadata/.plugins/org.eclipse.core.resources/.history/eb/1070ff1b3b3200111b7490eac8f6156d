@@ -1,0 +1,5 @@
+package mph;
+
+public abstract class User {
+
+}

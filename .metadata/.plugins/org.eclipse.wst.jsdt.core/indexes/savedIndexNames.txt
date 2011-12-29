@@ -1,0 +1,6 @@
+INDEX VERSION 1.122+/Users/gabrielepetronella/Desktop/MPH/eclipseWorkspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2405105370.index
+2524540755.index
+897189868.index
+765415050.index
+1588073683.index

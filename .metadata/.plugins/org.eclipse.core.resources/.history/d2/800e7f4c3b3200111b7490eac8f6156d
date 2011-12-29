@@ -1,0 +1,6 @@
+package mph;
+
+@Entity
+public abstract class User {
+
+}
