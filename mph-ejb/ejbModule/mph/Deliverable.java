@@ -13,6 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+/**
+ * @author Gabriele
+ *
+ */
 @Entity
 public class Deliverable implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,23 +30,54 @@ public class Deliverable implements Serializable {
 	@OneToMany(mappedBy="deliverable_id", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Document> documents;
 	
+	
+	public Deliverable() {}
+	
+	/**
+	 * @param project
+	 */
+	public Deliverable(Project project) {
+		this.project = project;
+	}
+	
+	/**
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
+	
+	/**
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 	
+	/**
+	 * @return
+	 */
 	public Project getProject() {
 		return project;
 	}
+	
+	/**
+	 * @param project
+	 */
 	public void setProject(Project project) {
 		this.project = project;
 	}
 	
+	/**
+	 * @return
+	 */
 	public List<Document> getDocuments() {
 		return documents;
 	}
+	
+	/**
+	 * @param documents
+	 */
 	public void setDocuments(List<Document> documents) {
 		this.documents = documents;
 	}

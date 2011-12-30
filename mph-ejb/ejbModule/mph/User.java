@@ -1,7 +1,6 @@
 package mph;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,40 +19,90 @@ public abstract class User implements Serializable {
 	private String lastName;
 	//TODO Avatar field
 	
-	//Getters and setters
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
+	public User() {}
+	
+	/**
+	 * @param username
+	 * @param password
+	 * @param firstName
+	 * @param lastName
+	 */
+	public User(String username, String password, String firstName,
+			String lastName) {
 		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 	
-	public List<User> getUsers() {
-		//TODO stub
-		return null;
+	//Getters and setters
+	/**
+	 * @return
+	 */
+	public int getId() {
+		return id;
+	}
+	
+	/**
+	 * @param id
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getUsername() {
+		return username;
+	}
+	
+	/**
+	 * @param username
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getPassword() {
+		return password;
+	}
+	
+	/**
+	 * @param password
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	/**
+	 * @param firstName
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+	
+	/**
+	 * @param lastName
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 }

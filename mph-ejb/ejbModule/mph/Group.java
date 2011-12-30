@@ -16,6 +16,10 @@ import exceptions.DocumentNotFoundException;
 import exceptions.GroupEmptyException;
 import exceptions.GroupLimitReachedException;
 
+/**
+ * @author Gabriele
+ *
+ */
 @Entity
 public class Group {
 
@@ -33,59 +37,114 @@ public class Group {
 	@ManyToOne @JoinColumn(name="project_id")
 	private Project project;
 	
+	public Group() {}
+	
+	/**
+	 * @param project
+	 */
+	public Group(Project project) {
+		this.project = project;
+	}
+	
 	//Getters and setters
+	/**
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
+	
+	/**
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 	
+	/**
+	 * @return
+	 */
 	public int getFinalScore() {
 		return finalScore;
 	}
+	
+	/**
+	 * @param finalScore
+	 */
 	public void setFinalScore(int finalScore) {
 		this.finalScore = finalScore;
 	}
 	
+	/**
+	 * @return
+	 */
 	public List<Student> getMembers() {
 		return members;
 	}
+	
+	/**
+	 * @param members
+	 */
 	public void setMembers(List<Student> members) {
 		this.members = members;
 	}
 	
+	/**
+	 * @return
+	 */
 	public List<Document> getDocuments() {
 		return documents;
 	}
+	
+	/**
+	 * @param documents
+	 */
 	public void setDocuments(List<Document> documents) {
 		this.documents = documents;
 	}
 	
+	/**
+	 * @return
+	 */
 	public Project getProject() {
 		return project;
 	}
+	
+	/**
+	 * @param project
+	 */
 	public void setProject(Project project) {
 		this.project = project;
 	}
+	
+	/**
+	 * @param student
+	 * @throws GroupLimitReachedException
+	 */
 	public void addStudent(Student student) throws GroupLimitReachedException {
 		//TODO stub
 	}
 	
+	/**
+	 * @param student
+	 * @throws GroupEmptyException
+	 */
 	public void delStudent(Student student) throws GroupEmptyException {
 		//TODO stub
 	}
 	
+	/**
+	 * @param document
+	 */
 	public void addDocument(Document document) {
 		//TODO stub
 	}
 	
+	/**
+	 * @param document
+	 * @throws DocumentNotFoundException
+	 */
 	public void delDocument(Document document) throws DocumentNotFoundException {
 		//TODO stub
-	}
-	
-	public List<Group> getGroups() {
-		//TODO stub
-		return null;
 	}
 }
