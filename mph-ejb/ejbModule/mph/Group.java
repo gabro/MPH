@@ -16,13 +16,22 @@ import exceptions.GroupLimitReachedException;
 
 @Entity
 public class Group {
+
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
 	private int finalScore;
+
+	@OneToMany(mappedBy="group")
 	private List<Student> members;
+	
+	@OneToMany(mappedBy="group")
 	private List<Document> documents;
+	
+	@ManyToOne @JoinColumn(name="project_id")
 	private Project project;
 	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	//Getters and setters
 	public int getId() {
 		return id;
 	}
@@ -37,7 +46,6 @@ public class Group {
 		this.finalScore = finalScore;
 	}
 	
-	@OneToMany(mappedBy="group")
 	public List<Student> getMembers() {
 		return members;
 	}
@@ -45,7 +53,6 @@ public class Group {
 		this.members = members;
 	}
 	
-	@OneToMany(mappedBy="group")
 	public List<Document> getDocuments() {
 		return documents;
 	}
@@ -53,7 +60,6 @@ public class Group {
 		this.documents = documents;
 	}
 	
-	@ManyToOne @JoinColumn(name="project_id")
 	public Project getProject() {
 		return project;
 	}

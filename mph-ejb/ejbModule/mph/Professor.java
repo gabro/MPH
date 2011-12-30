@@ -9,9 +9,10 @@ import javax.persistence.OneToMany;
 public class Professor extends User {
 	private static final long serialVersionUID = 1L;
 	
+	@OneToMany(mappedBy="professor")
 	private List<Project> projects;
 	
-	@OneToMany(mappedBy="professor")
+	//Getters and setters
 	public List<Project> getProjects() {
 		return projects;
 	}

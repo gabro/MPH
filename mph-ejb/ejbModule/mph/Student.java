@@ -11,6 +11,8 @@ public class Student extends User {
 	private static final long serialVersionUID = 1L;
 
 	private String matrNo;
+
+	@ManyToOne @JoinColumn(name="group_id")
 	private Group group;
 	
 	//Getters and setters
@@ -21,7 +23,6 @@ public class Student extends User {
 		this.matrNo = matrNo;
 	}
 	
-	@ManyToOne @JoinColumn(name="group_id")
 	public Group getGroup() {
 		return group;
 	}

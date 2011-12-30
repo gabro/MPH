@@ -15,11 +15,16 @@ import javax.persistence.OneToMany;
 public class Project implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+
+	@ManyToOne @JoinColumn(name="professor_id")
 	private Professor professor;
+
+	@OneToMany(mappedBy="project")
 	private List<Group> groups;
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	//Getters and setters
 	public int getId() {
 		return id;
 	}
@@ -27,7 +32,6 @@ public class Project implements Serializable {
 		this.id = id;
 	}
 	
-	@ManyToOne @JoinColumn(name="professor_id")
 	public Professor getProfessor() {
 		return professor;
 	}
@@ -35,7 +39,6 @@ public class Project implements Serializable {
 		this.professor = professor;
 	}
 
-	@OneToMany(mappedBy="project")
 	public List<Group> getGroups() {
 		return groups;
 	}

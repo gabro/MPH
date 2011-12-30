@@ -12,6 +12,7 @@ import javax.persistence.Id;
 public abstract class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String username;
 	private String password;
@@ -20,7 +21,6 @@ public abstract class User implements Serializable {
 	//TODO Avatar field
 	
 	//Getters and setters
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}

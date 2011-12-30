@@ -15,11 +15,15 @@ import javax.persistence.OneToMany;
 public class Deliverable implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
+	@ManyToOne @JoinColumn(name="project_id")
 	private Project project;
+	
+	@OneToMany(mappedBy="deliverable_id")
 	private List<Document> documents;
 	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}
@@ -27,7 +31,6 @@ public class Deliverable implements Serializable {
 		this.id = id;
 	}
 	
-	@ManyToOne @JoinColumn(name="project_id")
 	public Project getProject() {
 		return project;
 	}
@@ -35,7 +38,6 @@ public class Deliverable implements Serializable {
 		this.project = project;
 	}
 	
-	@OneToMany(mappedBy="deliverable_id")
 	public List<Document> getDocuments() {
 		return documents;
 	}

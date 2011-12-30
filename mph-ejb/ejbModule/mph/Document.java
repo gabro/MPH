@@ -12,17 +12,17 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Document implements Serializable {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
+	@ManyToOne @JoinColumn(name="deliverable_id")
 	private Deliverable deliverable;
+	
+	@ManyToOne @JoinColumn(name="group_id")
 	private Group group;
 	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}
@@ -30,7 +30,6 @@ public class Document implements Serializable {
 		this.id = id;
 	}
 	
-	@ManyToOne @JoinColumn(name="deliverable_id")
 	public Deliverable getDeliverable() {
 		return deliverable;
 	}
@@ -38,7 +37,6 @@ public class Document implements Serializable {
 		this.deliverable = deliverable;
 	}
 	
-	@ManyToOne @JoinColumn(name="group_id")
 	public Group getGroup() {
 		return group;
 	}
