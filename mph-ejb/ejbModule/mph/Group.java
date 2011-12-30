@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import exceptions.DocumentNotFoundException;
@@ -18,6 +20,7 @@ public class Group {
 	private int finalScore;
 	private List<Student> members;
 	private List<Document> documents;
+	private Project project;
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
@@ -50,6 +53,13 @@ public class Group {
 		this.documents = documents;
 	}
 	
+	@ManyToOne @JoinColumn(name="project_id")
+	public Project getProject() {
+		return project;
+	}
+	public void setProject(Project project) {
+		this.project = project;
+	}
 	public void addStudent(Student student) throws GroupLimitReachedException {
 		//TODO stub
 	}
