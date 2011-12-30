@@ -3,7 +3,9 @@ package mph;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +23,7 @@ public class Deliverable implements Serializable {
 	@ManyToOne @JoinColumn(name="project_id")
 	private Project project;
 	
-	@OneToMany(mappedBy="deliverable_id")
+	@OneToMany(mappedBy="deliverable_id", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Document> documents;
 	
 	public int getId() {

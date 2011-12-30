@@ -2,7 +2,9 @@ package mph;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,10 +24,10 @@ public class Group {
 	
 	private int finalScore;
 
-	@OneToMany(mappedBy="group")
+	@OneToMany(mappedBy="group", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Student> members;
 	
-	@OneToMany(mappedBy="group")
+	@OneToMany(mappedBy="group", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Document> documents;
 	
 	@ManyToOne @JoinColumn(name="project_id")

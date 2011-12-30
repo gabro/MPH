@@ -3,7 +3,9 @@ package mph;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +23,7 @@ public class Project implements Serializable {
 	@ManyToOne @JoinColumn(name="professor_id")
 	private Professor professor;
 
-	@OneToMany(mappedBy="project")
+	@OneToMany(mappedBy="project", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Group> groups;
 
 	//Getters and setters
