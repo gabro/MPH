@@ -19,7 +19,7 @@ public class Document implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int id;
-//	private Deliverable deliverable;
+	private Deliverable deliverable;
 	private Group group;
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
@@ -28,6 +28,14 @@ public class Document implements Serializable {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	@ManyToOne @JoinColumn(name="deliverable_id")
+	public Deliverable getDeliverable() {
+		return deliverable;
+	}
+	public void setDeliverable(Deliverable deliverable) {
+		this.deliverable = deliverable;
 	}
 	
 	@ManyToOne @JoinColumn(name="group_id")
