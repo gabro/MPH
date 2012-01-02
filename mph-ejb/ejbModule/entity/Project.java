@@ -1,4 +1,4 @@
-package mph;
+package entity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,28 +18,19 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
-public class Deliverable implements Serializable {
+public class Project implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	
-	@ManyToOne @JoinColumn(name="project_id")
-	private Project project;
-	
-	@OneToMany(mappedBy="deliverable_id", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<Document> documents;
-	
-	
-	public Deliverable() {}
-	
-	/**
-	 * @param project
-	 */
-	public Deliverable(Project project) {
-		this.project = project;
-	}
-	
+
+	@ManyToOne @JoinColumn(name="professor_id")
+	private Professor professor;
+
+	@OneToMany(mappedBy="project", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<Group> groups;
+
+	//Getters and setters
 	/**
 	 * @return
 	 */
@@ -57,28 +48,28 @@ public class Deliverable implements Serializable {
 	/**
 	 * @return
 	 */
-	public Project getProject() {
-		return project;
+	public Professor getProfessor() {
+		return professor;
 	}
 	
 	/**
-	 * @param project
+	 * @param professor
 	 */
-	public void setProject(Project project) {
-		this.project = project;
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
 	}
-	
+
 	/**
 	 * @return
 	 */
-	public List<Document> getDocuments() {
-		return documents;
+	public List<Group> getGroups() {
+		return groups;
 	}
-	
+
 	/**
-	 * @param documents
+	 * @param groups
 	 */
-	public void setDocuments(List<Document> documents) {
-		this.documents = documents;
+	public void setGroups(List<Group> groups) {
+		this.groups = groups;
 	}
 }

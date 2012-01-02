@@ -1,4 +1,4 @@
-package mph;
+package entity;
 
 import java.io.Serializable;
 
@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.jboss.security.Util;
 
 @Entity
 public abstract class User implements Serializable {
@@ -75,7 +77,8 @@ public abstract class User implements Serializable {
 	 * @param password
 	 */
 	public void setPassword(String password) {
-		this.password = password;
+//		this.password = password;
+		 this.password = Util.createPasswordHash("MD5", Util.BASE64_ENCODING, null, null, password);
 	}
 	
 	/**

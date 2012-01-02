@@ -1,4 +1,4 @@
-package mph;
+package entity;
 
 import java.io.Serializable;
 

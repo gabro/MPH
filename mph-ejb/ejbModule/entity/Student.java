@@ -1,4 +1,4 @@
-package mph;
+package entity;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
